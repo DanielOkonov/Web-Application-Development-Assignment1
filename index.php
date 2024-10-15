@@ -15,6 +15,8 @@ $articles = $articleRepository->getAllArticles();
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <link href="styles/input.css" rel="stylesheet">
 
 </head>
@@ -27,25 +29,36 @@ $articles = $articleRepository->getAllArticles();
 
         <h2 id="page-title" class="text-3xl font-semibold text-center text-indigo-700 mt-10">Articles</h2>
 
-        <div class="mt-8 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-
+        <div class="d-flex flex-column align-items-center">
             <?php if (!empty($articles)) : ?>
                 <?php foreach ($articles as $article) : ?>
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="text-lg font-semibold text-gray-800">
-                                <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-warning no-underline">
-                                    <?php echo htmlspecialchars($article->getTitle()); ?>
-                                </a>
-                            </h3>
+                    <div class="col-md-6 col-lg-4 mb-4"> 
+                        <div class="card" style="max-width: 50rem;">  
+                            <div class="card-body d-flex justify-content-between align-items-center">  
+                                
+                                <!-- Article card -->
+                                <h5 class="card-title mb-0">
+                                    <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-warning no-underline">
+                                        <?php echo htmlspecialchars($article->getTitle()); ?>
+                                    </a>
+                                </h5>
+
+                                <!-- Delete button -->
+                                <form action="delete_article.php" method="POST" class="ml-3">
+                                    <!-- Hidden input to hold the article ID -->
+                                    <input type="hidden" name="id" value="<?php echo $article->getId(); ?>">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
-                    <br>
                 <?php endforeach; ?>
             <?php else : ?>
                 <p class="text-center text-gray-500">No articles found.</p>
             <?php endif; ?>
-
         </div>
     </div>
 

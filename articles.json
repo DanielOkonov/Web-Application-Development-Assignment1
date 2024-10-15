@@ -1,42 +1,12 @@
-[
-    {
-        "id": 1728522320,
+{
+    "1": {
+        "id": 1728972292,
         "title": "Amazon",
         "url": "https:\/\/www.amazon.ca\/"
     },
-    {
-        "id": 1728522509,
+    "2": {
+        "id": 1728972334,
         "title": "Walmart",
         "url": "https:\/\/www.walmart.ca\/en"
-    },
-    {
-        "id": 1728552947,
-        "title": "CT",
-        "url": "https:\/\/www.canadiantire.ca\/en.html"
-    },
-    {
-        "id": 1728553003,
-        "title": "BCIT CST",
-        "url": "https:\/\/www.bcit.ca\/programs\/computer-systems-technology-diploma-full-time-5500dipma\/#overview"
-    },
-    {
-        "id": 1728553594,
-        "title": "Indeed",
-        "url": "https:\/\/ca.indeed.com\/"
-    },
-    {
-        "id": 1728553689,
-        "title": "Monkeytype",
-        "url": "https:\/\/monkeytype.com\/"
-    },
-    {
-        "id": 1728553857,
-        "title": "Petsmart",
-        "url": "https:\/\/www.petsmart.ca\/"
-    },
-    {
-        "id": 1728955870,
-        "title": "Canucks Shop",
-        "url": "https:\/\/vanbase.ca\/"
     }
-]
+}

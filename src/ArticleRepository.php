@@ -37,7 +37,9 @@ class ArticleRepository
     }
 
     /**
-     *
+     * Get a single article by ID
+     * @param int $id
+     * @return Article|null
      */
     public function getArticleById(int $id): Article|null
     {
@@ -55,7 +57,31 @@ class ArticleRepository
      */
     public function deleteArticleById(int $id): void
     {
-        // TODO
+        $articles = $this->getAllArticles();
+
+        //Filter out the article with the matching ID and only keep articles where the ID doesn't match
+        $updatedArticles = array_filter($articles, function ($article) use ($id) {
+            return $article->getId() !== $id;
+        });
+
+        //Save the updated articles to the JSON file
+        $this->saveAllArticles($updatedArticles);
+    }
+
+    /**
+     * @param Article[] $articles
+     */
+    private function saveAllArticles(array $articles): void
+    {
+        $articleData = array_map(function ($article) {
+            return [
+                'id' => $article->getId(),
+                'title' => $article->getTitle(),
+                'url' => $article->getUrl()
+            ];
+        }, $articles);
+
+        file_put_contents($this->filename, json_encode($articleData, JSON_PRETTY_PRINT));
     }
 
     /**
