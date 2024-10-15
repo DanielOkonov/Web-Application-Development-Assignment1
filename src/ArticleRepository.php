@@ -89,7 +89,12 @@ class ArticleRepository
      */
     public function saveArticle(Article $article): void
     {
-        // TODO
+        $articles = $this->getAllArticles();
+
+        //Append the new article to the list
+        $articles[] = $article;
+
+        $this->saveAllArticles($articles);
     }
 
     /**
@@ -98,6 +103,16 @@ class ArticleRepository
      */
     public function updateArticle(int $id, Article $updatedArticle): void
     {
-        // TODO
+        $articles = $this->getAllArticles();
+
+        foreach ($articles as $index => $article) {
+            if ($article->getId() === $id) {
+                $articles[$index]->setTitle($updatedArticle->getTitle());
+                $articles[$index]->setUrl($updatedArticle->getUrl());
+                break;
+            }
+        }
+
+        $this->saveAllArticles($articles);
     }
 }

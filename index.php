@@ -43,14 +43,24 @@ $articles = $articleRepository->getAllArticles();
                                     </a>
                                 </h5>
 
-                                <!-- Delete button -->
-                                <form action="delete_article.php" method="POST" class="ml-3">
-                                    <!-- Hidden input to hold the article ID -->
-                                    <input type="hidden" name="id" value="<?php echo $article->getId(); ?>">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex">
+                                    <!-- Update button -->
+                                    <form action="update_article.php" method="GET">
+                                        <input type="hidden" name="id" value="<?php echo $article->getId(); ?>">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                    </form>
+
+
+                                    <!-- Delete button -->
+                                    <form action="delete_article.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $article->getId(); ?>">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    </form>
+                                </div>
 
                             </div>
                         </div>

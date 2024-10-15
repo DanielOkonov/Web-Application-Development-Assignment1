@@ -1,12 +1,17 @@
-{
-    "1": {
-        "id": 1728972292,
+[
+    {
+        "id": 1728972334,
+        "title": "asd",
+        "url": "https:\/\/www.walmart.ca\/en"
+    },
+    {
+        "id": 1729032702,
         "title": "Amazon",
         "url": "https:\/\/www.amazon.ca\/"
     },
-    "2": {
-        "id": 1728972334,
-        "title": "Walmart",
-        "url": "https:\/\/www.walmart.ca\/en"
+    {
+        "id": 1729033010,
+        "title": "asdf",
+        "url": "https:\/\/www.ebay.ca\/"
     }
-}
+]
