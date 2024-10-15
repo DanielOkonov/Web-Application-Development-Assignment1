@@ -21,15 +21,13 @@ $articles = $articleRepository->getAllArticles();
 
         <div class="overflow-hidden">
             <ul role="list">
+
                 <?php if (!empty($articles)) : ?>
                     <?php foreach ($articles as $article) : ?>
                         <li class="mb-4">
-                            <h3><?php echo htmlspecialchars($article->getTitle()); ?></h3>
-                            <p>
-                                <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank">
-                                    <?php echo htmlspecialchars($article->getUrl()); ?>
-                                </a>
-                            </p>
+                            <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-blue-500 hover:underline">
+                                <?php echo htmlspecialchars($article->getTitle()); ?>
+                            </a>
                         </li>
                     <?php endforeach; ?>
                 <?php else : ?>
