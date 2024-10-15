@@ -27,8 +27,11 @@ class ArticleRepository
         }
         $articles = [];
         foreach ($decodedArticles as $decodedArticle) {
-            $articleId = time();
-            $articles[] = (new Article($articleId))->fill($decodedArticle);
+            $articleId = $decodedArticle['id'];
+            $articleTitle = $decodedArticle['title'];
+            $articleUrl = $decodedArticle['url'];
+
+            $articles[] = new Article($articleTitle, $articleUrl, $articleId);
         }
         return $articles;
     }

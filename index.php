@@ -21,18 +21,25 @@ $articles = $articleRepository->getAllArticles();
 
         <div class="overflow-hidden">
             <ul role="list">
-
-                <?php foreach ($articles as $article) : ?>
-                    <div>
-                        <?php $article->getUrl() ?>
-                    </div>
-                <?php endforeach; ?>
+                <?php if (!empty($articles)) : ?>
+                    <?php foreach ($articles as $article) : ?>
+                        <li class="mb-4">
+                            <h3><?php echo htmlspecialchars($article->getTitle()); ?></h3>
+                            <p>
+                                <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank">
+                                    <?php echo htmlspecialchars($article->getUrl()); ?>
+                                </a>
+                            </p>
+                        </li>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <p>No articles found.</p>
+                <?php endif; ?>
 
             </ul>
         </div>
 
     </div>
-
 
 </body>
 
