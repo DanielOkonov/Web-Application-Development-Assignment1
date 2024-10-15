@@ -11,32 +11,42 @@ $articles = $articleRepository->getAllArticles();
 
 <?php require_once 'layout/header.php' ?>
 
+<head>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="styles/input.css" rel="stylesheet">
+
+</head>
+
 <body>
 
     <?php require_once 'layout/navigation.php' ?>
 
     <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
 
-        <h2 id="page-title" class="text-xl text-center font-semibold text-indigo-700 mt-10">Articles</h2>
+        <h2 id="page-title" class="text-3xl font-semibold text-center text-indigo-700 mt-10">Articles</h2>
 
-        <div class="overflow-hidden">
-            <ul role="list">
+        <div class="mt-8 grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
 
-                <?php if (!empty($articles)) : ?>
-                    <?php foreach ($articles as $article) : ?>
-                        <li class="mb-4">
-                            <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-blue-500 hover:underline">
-                                <?php echo htmlspecialchars($article->getTitle()); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <p>No articles found.</p>
-                <?php endif; ?>
+            <?php if (!empty($articles)) : ?>
+                <?php foreach ($articles as $article) : ?>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-lg font-semibold text-gray-800">
+                                <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-warning no-underline">
+                                    <?php echo htmlspecialchars($article->getTitle()); ?>
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p class="text-center text-gray-500">No articles found.</p>
+            <?php endif; ?>
 
-            </ul>
         </div>
-
     </div>
 
 </body>
