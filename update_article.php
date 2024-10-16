@@ -54,6 +54,8 @@ if ($article === null) {
 	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+	<?php require_once 'layout/navigation.php'; ?>
+	
     <div class="container mt-5">
         <h2 class="mb-4">Update Article</h2>
 
