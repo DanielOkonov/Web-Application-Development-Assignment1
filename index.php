@@ -35,7 +35,7 @@ $articles = $articleRepository->getAllArticles();
                     <div class="col-md-6 col-lg-4 mb-4"> 
                         <div class="card" style="max-width: 50rem;">  
                             <div class="card-body d-flex justify-content-between align-items-center">  
-                                
+
                                 <!-- Article card -->
                                 <h5 class="card-title mb-0">
                                     <a href="<?php echo htmlspecialchars($article->getUrl()); ?>" target="_blank" class="text-warning no-underline">
@@ -51,7 +51,6 @@ $articles = $articleRepository->getAllArticles();
                                             <i class="bi bi-pencil-square"></i>
                                         </button>
                                     </form>
-
 
                                     <!-- Delete button -->
                                     <form action="delete_article.php" method="POST">
